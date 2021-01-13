@@ -143,3 +143,29 @@ class _MyHomePageState extends State<MyHomePage> {
 ## Widget classes
 ### MaterialApp
 This widget is used to create a Material app. [Material](https://material.io/guidelines) is a visual design language that is standard on mobile and the web.
+### ListView
+ListView.builder is used to build a list view.
+To build a list view, you will build list tile by defining a function to build list tile and set it into itemBuilder property of ListView.builder.
+
+Example 1:
+  Widget _buildSuggestions() {
+    return ListView.builder(itemBuilder: (context, i) {
+      if (i.isOdd) {
+        return Divider(); //high of Divider = 1px
+      }
+      var index = i ~/ 2;
+      if (index >= _suggestions.length) {
+        _suggestions.addAll(generateWordPairs().take(10));
+      }
+      return _buildRow(_suggestions[index]);
+    });
+  }
+### ListTile
+ListTile is used to build list item.
+
+Example 1:
+  Widget _buildRow(WordPair wordPair) {
+    return ListTile(
+      title: Text(wordPair.asPascalCase),
+    );
+  }
