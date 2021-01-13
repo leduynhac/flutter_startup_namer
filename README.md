@@ -169,3 +169,28 @@ Example 1:
       title: Text(wordPair.asPascalCase),
     );
   }
+
+### Icon
+Icon is used to create icon.
+
+Example 1:
+  Widget _buildRow(WordPair wordPair) {
+    final alreadySaved = _saved.contains(wordPair);
+
+    return ListTile(
+      title: Text(wordPair.asPascalCase),
+      trailing: Icon(
+        alreadySaved ? Icons.favorite : Icons.favorite_border,
+        color: alreadySaved ? Colors.red : null,  
+      ),
+    );
+  }
+
+## Data types
+### List type
+//declare a variable of List type
+final _suggestions = <WordPair>[];
+
+### Set type
+//declare a variable of Set type explicitly
+final _saved = Set<WordPair>();
