@@ -69,6 +69,9 @@ samples, guidance on mobile development, and a full API reference.
     @override
     _MyHomePageState createState() => _MyHomePageState();
   }
+
+- In Flutter's reactive style framework, calling setState() triggers a call to the build() method for the State object, resulting in an update to the UI.
+
 ## Widget notes
 - The widget can be a StatelessWidget or StatefullWidget.
 - Extending a widget requires to override the build method: Widget build(BuildContext context)
