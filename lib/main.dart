@@ -27,6 +27,29 @@ class _RandomWordsState extends State<RandomWords> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Startup Name Generator'),
+        actions: [
+          IconButton(icon: Icon(Icons.list), onPressed: (){
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (BuildContext context){
+                final tiles = _saved.map((WordPair wordpair){
+                  return ListTile(
+                    title: Text(wordpair.asPascalCase),
+                    );
+                });
+                final devided = ListTile.divideTiles(
+                  context: context,
+                  tiles: tiles
+                  );
+                return Scaffold(
+                  appBar: AppBar(
+                    title: Text('Saved Suggestion'),
+                    ),
+                  body: ListView(children: devided.toList(),
+                );
+              })
+            );
+          }),
+        ],
       ),
       body: _buildSuggestions(),
     );
