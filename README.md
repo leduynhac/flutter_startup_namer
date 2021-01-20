@@ -230,3 +230,21 @@ Example 1:
 ### Display the previous route
 Pop a route from the Navigator's stack returns the display to the previous route.
 The Navigator adds a "Back" button to the app bar. You did not have to explicitly implement Navigator.pop. Tap the back button to return to the previous route.
+
+## Change the UI using themes
+- The theme controls the look and feel of your app.
+- You can either use the default theme which is dependent on the physical device or simulator, or customize the theme to reflect your branding.
+- You can easily change the app's theme by configuring the ThemeData class.
+Example 1:
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Startup Name Generator',
+      theme: ThemeData(          // Add the 3 lines from here... 
+        primaryColor: Colors.white,
+      ),                         // ... to here.
+      home: RandomWords(),
+    );
+  }
+}

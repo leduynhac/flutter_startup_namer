@@ -8,6 +8,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Welcome to Flutter',
+      theme: ThemeData(
+        primaryColor: Colors.green,
+      ),
       home: RandomWords(),
     );
   }
@@ -44,7 +47,7 @@ class _RandomWordsState extends State<RandomWords> {
                   appBar: AppBar(
                     title: Text('Saved Suggestion'),
                     ),
-                  body: ListView(children: devided.toList(),
+                  body: ListView(children: devided.toList()),
                 );
               })
             );
