@@ -174,6 +174,7 @@ Example 1:
   }
 
 ### Icon
+#### Icon class
 Icon is used to create icon.
 
 Example 1:
@@ -189,6 +190,14 @@ Example 1:
     );
   }
 
+#### Icons class
+
+#### IconButton class
+
+#### ImageIcon class
+
+#### IconData class
+
 ## Data types
 ### List type
 //declare a variable of List type
@@ -197,3 +206,45 @@ final _suggestions = <WordPair>[];
 ### Set type
 //declare a variable of Set type explicitly
 final _saved = Set<WordPair>();
+
+## Navigate to a new screen
+- In Flutter, a new page called a route.
+- In Flutter, a Navigator manages a stack containing the app's routes.
+### Create a new route
+use the MaterialPageRoute class to create a new instance for the new route.
+### Display a route
+Push a route onto the Navigator's stack updates the display to that route.
+Example 1:
+  Navigator.of(context).push(
+    MaterialPageRoute<void>(
+      builder: (BuildContext context){
+        return Scafford(
+          appBar: AppBar(
+            title: Text('Saved Suggestion'),
+          ),
+          body: ListView(children: my_list),
+        );
+      }
+    )
+  );
+### Display the previous route
+Pop a route from the Navigator's stack returns the display to the previous route.
+The Navigator adds a "Back" button to the app bar. You did not have to explicitly implement Navigator.pop. Tap the back button to return to the previous route.
+
+## Change the UI using themes
+- The theme controls the look and feel of your app.
+- You can either use the default theme which is dependent on the physical device or simulator, or customize the theme to reflect your branding.
+- You can easily change the app's theme by configuring the ThemeData class.
+Example 1:
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Startup Name Generator',
+      theme: ThemeData(          // Add the 3 lines from here... 
+        primaryColor: Colors.white,
+      ),                         // ... to here.
+      home: RandomWords(),
+    );
+  }
+}
